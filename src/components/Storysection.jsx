@@ -37,7 +37,7 @@ const Storysection = () => {
   };
   return (
     <div>
-       <section className="story_section">
+       <section className="story-section">
       <div className="block-header">
         <h2>#StoryLoop in <span>Action</span>
         </h2>

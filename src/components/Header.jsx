@@ -101,7 +101,7 @@ export default function Header (){
         <div className="header-mobile-buttons">
           <div className="login-links">
             <a href="#" className="account-login sign-link">
-              <svg xmlns="http://www.w3.org/2000/svg" style={{width:"20", height:"20", viewBox:"0 0 20 20", fill:"none"}}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="20" viewBox="0 0 20 20" fill="none">
                 <path d="M9.99984 1.66602C5.39746 1.66602 1.6665 5.39697 1.6665 9.99935C1.6665 14.6017 5.39746 18.3327 9.99984 18.3327C14.6022 18.3327 18.3332 14.6017 18.3332 9.99935C18.3332 5.39697 14.6022 1.66602 9.99984 1.66602Z" style={{stroke:"#181818", strokeWidth:"1.2", strokeLinecap:"round", strokeLinejoin:"round"}} />
                 <path d="M3.55908 15.2874C3.55908 15.2874 5.4166 12.916 9.99992 12.916C14.5832 12.916 16.4408 15.2874 16.4408 15.2874" style={{stroke:"#181818", strokeWidth:"1.2", strokeLinecap:"round", strokeLinejoin:"round"}} />
                 <path d="M10 10C11.3807 10 12.5 8.88075 12.5 7.5C12.5 6.11929 11.3807 5 10 5C8.61925 5 7.5 6.11929 7.5 7.5C7.5 8.88075 8.61925 10 10 10Z" style={{stroke:"#181818", strokeWidth:"1.2", strokeLinecap:"round", strokeLinejoin:"round"}} />
