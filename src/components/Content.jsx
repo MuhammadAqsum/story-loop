@@ -1,6 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { DataContext } from './DataContext';
 
 const Content = () => {
+  const { data, loading, error } = useContext(DataContext);
+    
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+  const contentSection1 = data?.content_section1 || {};
+  const contentSection2 = data?.content_section2 || {};
+  const contentSec1  = contentSection1.content_sec1_attrbs || {}; 
+  const contentSec2  = contentSection2.content_sec2_attrbs || {}; 
   return (
     <div>
        <section class="worship-section">
@@ -8,34 +17,33 @@ const Content = () => {
         <div class="row">
           <div class="col-6">
             <div class="image-column">
-              <img src="assets/images/curated-library1.png" alt=""/>
+              <img src={contentSection1.content_sec1_img} alt=""/>
             </div>
           </div>
           <div class="col-6">
             <div class="content-column">
-              <h2>
-                <span> A Curated Library </span>of <br/> Worship Backgrounds & <br/>More
-              </h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+              <h2 dangerouslySetInnerHTML={{ __html: contentSection1.content_sec1_title }}></h2>
+              <p>{contentSection1.content_sec1_desc}</p>
               <ul>
-                <li>Lorem ipsum dolor sit amet, consectetur.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur.</li>
+              {contentSec1.map((item, index) => (
+              <li key={index}>{item.feature} </li>
+            ))}
               </ul>
-              <a href="#" class="arrow-button">Get Started Free <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <a href="#" class="arrow-button">{contentSection1.content_sec1_btn_label} <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="32" height="32" rx="16" fill="#E5FC93" />
                   <path d="M12.3333 19.6667L19.6666 12.3334L12.3333 19.6667ZM19.6666 12.3334V19.3734V12.3334ZM19.6666 12.3334H12.6267H19.6666Z" fill="#181818" />
                   <path d="M12.3333 19.6667L19.6666 12.3334M19.6666 12.3334V19.3734M19.6666 12.3334H12.6267" stroke="#181818" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </a>
               <div class="author-box">
-                <p>They have the most incredible visuals for worship. And they go way beyond the surface level with the most theologically strong short films that are available anywhere.</p>
+                <p>{contentSection1.content_sec1_testimonial_txt} </p>
                 <div class="author-col">
                   <figure>
-                    <img src="assets/images/brad-zimmerman.png" alt=""/>
+                    <img src={contentSection1.content_sec1_testimonial_img} alt=""/>
                   </figure>
                   <div class="author-details">
-                    <h6>Brad Zimmerman</h6>
-                    <p>Worker at Company Name</p>
+                    <h6>{contentSection1.content_sec1_testimonial_name}</h6>
+                    <p>{contentSection1.content_sec1_testimonial_role}</p>
                   </div>
                 </div>
               </div>
@@ -45,38 +53,37 @@ const Content = () => {
       </div>
     </section>
     <section class="worship-section column-reverse">
-      <div class="container-fluid">
+    <div class="container-fluid">
         <div class="row">
           <div class="col-6">
             <div class="image-column">
-              <img src="assets/images/curated-library3.jpeg" alt=""/>
+              <img src={contentSection2.content_sec2_img} alt=""/>
             </div>
           </div>
           <div class="col-6">
             <div class="content-column">
-              <h2>
-                <span> Less Time Scrolling. </span> More <br/> Time for Your Calling.
-              </h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+              <h2 dangerouslySetInnerHTML={{ __html: contentSection2.content_sec2_title }}></h2>
+              <p>{contentSection2.content_sec2_desc}</p>
               <ul>
-                <li>Lorem ipsum dolor sit amet, consectetur.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur.</li>
+              {contentSec2.map((item, index) => (
+              <li key={index}>{item.feature} </li>
+            ))}
               </ul>
-              <a href="#" class="arrow-button">Get Started Free <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <a href="#" class="arrow-button">{contentSection2.content_sec2_btn_label} <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="32" height="32" rx="16" fill="#E5FC93" />
                   <path d="M12.3333 19.6667L19.6666 12.3334L12.3333 19.6667ZM19.6666 12.3334V19.3734V12.3334ZM19.6666 12.3334H12.6267H19.6666Z" fill="#181818" />
                   <path d="M12.3333 19.6667L19.6666 12.3334M19.6666 12.3334V19.3734M19.6666 12.3334H12.6267" stroke="#181818" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </a>
               <div class="author-box">
-                <p>Story Loop has the most visually stunning content for churches anywhere. Their library of worship packs, short films, and dedicated content for church online are a must-have. </p>
+                <p>{contentSection2.content_sec2_testimonial_txt} </p>
                 <div class="author-col">
                   <figure>
-                    <img src="assets/images/andrew-farmer.jpeg" alt=""/>
+                    <img src={contentSection2.content_sec2_testimonial_img} alt=""/>
                   </figure>
                   <div class="author-details">
-                    <h6>Andrew Farmer</h6>
-                    <p>Connection Point Church</p>
+                    <h6>{contentSection2.content_sec2_testimonial_name}</h6>
+                    <p>{contentSection2.content_sec2_testimonial_role}</p>
                   </div>
                 </div>
               </div>

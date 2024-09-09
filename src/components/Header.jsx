@@ -59,7 +59,7 @@ export default function Header (){
                 <div className="sub-menu">
                   <ul>
                     <li>
-                      <a className="menu-link" href="#">Explore</a>
+                      <Link className="menu-link" to="/explore">Explore</Link>
                     </li>
                     <li>
                       <a className="menu-link" href="#">Ministry Graphics</a>
@@ -93,8 +93,8 @@ export default function Header (){
               </li>
             </ul>
             <div className="header-buttons">
-              <a href="#" className="header-button login-btn sign-link">Sign In</a>
-              <a href="#" className="header-button sign-up">Join Now</a>
+              <Link to="/login" className="header-button login-btn sign-link">Sign In</Link>
+              <Link to="/signup" className="header-button sign-up">Join Now</Link>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { DataContext } from './DataContext';
 import 'slick-carousel';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -6,12 +7,12 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const Storysection = () => {
   const setting = {
-    speed: 5000, // Transition speed in milliseconds
+    speed: 18000, // Transition speed in milliseconds
     autoplay: true,
     autoplaySpeed: 0, // Transition speed in milliseconds
     cssEase: 'linear',
     pauseOnHover: false,
-    slidesToShow: 3,
+    slidesToShow: 2.5,
     slidesToScroll: 1,
     infinite: true,
     arrows: false,
@@ -26,7 +27,7 @@ const Storysection = () => {
     autoplaySpeed: 0, // Transition speed in milliseconds
     cssEase: 'linear',
     pauseOnHover: false,
-    slidesToShow: 3,
+    slidesToShow: 2.5,
     slidesToScroll: 1,
     infinite: true,
     arrows: false,
@@ -35,117 +36,49 @@ const Storysection = () => {
     swipeToSlide: true,
     rtl:true
   };
+  const { data, loading, error } = useContext(DataContext);
+    
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+  const actionSec = data?.action_sec || {}; 
+  const images1 = actionSec.action_sec_crsl1|| {}; 
+  const images2 = actionSec.action_sec_crsl2|| {}; 
   return (
     <div>
        <section className="story-section">
       <div className="block-header">
-        <h2>#StoryLoop in <span>Action</span>
-        </h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. </p>
+        <h2 dangerouslySetInnerHTML={{ __html: actionSec.action_sec_title }}></h2>
+        <p> {actionSec.ction_sec_desc} </p>
       </div>
       <div class="story-slider-top">
       <Slider {...setting}>
-      <div className="slick-slide">
+      {images1.map((item, index) => (
+      <div className="slick-slide" key={index}>
       <div class="inner">
         <a href="#"></a>
-        <img src="assets/images/story1-img.png" class="slide-image" />
+        <img src={item.img} class="slide-image" />
         <span class="slide-text">
-          <img src="assets/images/church-icon.svg" />Vibrant Church, MS </span>
+          <img src="assets/images/church-icon.svg" />{item.label} </span>
       </div>
         </div>
-        <div className="slick-slide">
-        <div class="inner">
-          <a href="#"></a>
-          <img src="assets/images/story2-img.png" class="slide-image" />
-          <span class="slide-text">
-            <img src="assets/images/church-icon.svg" />Vibrant Church, MS </span>
-      </div>
-        </div>
-        <div className="slick-slide">
-        <div class="inner">
-          <a href="#"></a>
-          <img src="assets/images/story3-img.png" class="slide-image" />
-          <span class="slide-text">
-            <img src="assets/images/church-icon.svg" />Vibrant Church, MS </span>
-      </div>
-        </div>
-        <div className="slick-slide">
-        <div class="inner">
-          <a href="#"></a>
-          <img src="assets/images/story1-img.png" class="slide-image" />
-          <span class="slide-text">
-            <img src="assets/images/church-icon.svg" />Vibrant Church, MS </span>
-      </div>
-        </div>
-        <div className="slick-slide">
-        <div class="inner">
-          <a href="#"></a>
-          <img src="assets/images/story2-img.png" class="slide-image" />
-          <span class="slide-text">
-            <img src="assets/images/church-icon.svg" />Vibrant Church, MS </span>
-      </div>
-        </div>
-        <div className="slick-slide">
-        <div class="inner">
-          <a href="#"></a>
-          <img src="assets/images/story3-img.png" class="slide-image" />
-          <span class="slide-text">
-            <img src="assets/images/church-icon.svg" />Vibrant Church, MS </span>
-      </div>
-        </div>
+           ))}
       </Slider>
       
       </div>
       <div class="story-slider-bottom">
       <Slider {...setting1}>
-      <div className="slick-slide">
+      {images2.map((item, index) => (
+      <div className="slick-slide" key={index}>
       <div class="inner">
         <a href="#"></a>
-        <img src="assets/images/story1-img.png" class="slide-image" />
+        <img src={item.img} class="slide-image" />
         <span class="slide-text">
-          <img src="assets/images/church-icon.svg" />Vibrant Church, MS </span>
+          <img src="assets/images/church-icon.svg" />{item.label} </span>
       </div>
         </div>
-        <div className="slick-slide">
-        <div class="inner">
-          <a href="#"></a>
-          <img src="assets/images/story2-img.png" class="slide-image" />
-          <span class="slide-text">
-            <img src="assets/images/church-icon.svg" />Vibrant Church, MS </span>
-      </div>
-        </div>
-        <div className="slick-slide">
-        <div class="inner">
-          <a href="#"></a>
-          <img src="assets/images/story3-img.png" class="slide-image" />
-          <span class="slide-text">
-            <img src="assets/images/church-icon.svg" />Vibrant Church, MS </span>
-      </div>
-        </div>
-        <div className="slick-slide">
-        <div class="inner">
-          <a href="#"></a>
-          <img src="assets/images/story1-img.png" class="slide-image" />
-          <span class="slide-text">
-            <img src="assets/images/church-icon.svg" />Vibrant Church, MS </span>
-      </div>
-        </div>
-        <div className="slick-slide">
-        <div class="inner">
-          <a href="#"></a>
-          <img src="assets/images/story2-img.png" class="slide-image" />
-          <span class="slide-text">
-            <img src="assets/images/church-icon.svg" />Vibrant Church, MS </span>
-      </div>
-        </div>
-        <div className="slick-slide">
-        <div class="inner">
-          <a href="#"></a>
-          <img src="assets/images/story3-img.png" class="slide-image" />
-          <span class="slide-text">
-            <img src="assets/images/church-icon.svg" />Vibrant Church, MS </span>
-      </div>
-        </div>
+           ))}
+ 
+  
       </Slider>
       
       </div>

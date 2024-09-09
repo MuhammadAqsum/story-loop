@@ -34,18 +34,18 @@ const File = () => {
       <div className="account-sidebar-wrapper">
         <ul>
           <li>
-            <a href="profile.html">
+            <Link to="/profile">
               <svg xmlns="http://www.w3.org/2000/svg" style={{width: "20", height: "20", viewBox:"0 0 20 20", fill:"none"}}>
                 <path d="M9.99984 1.6665C5.39746 1.6665 1.6665 5.39746 1.6665 9.99984C1.6665 14.6022 5.39746 18.3332 9.99984 18.3332C14.6022 18.3332 18.3332 14.6022 18.3332 9.99984C18.3332 5.39746 14.6022 1.6665 9.99984 1.6665Z" style={{stroke: "#EB7F5E", strokeWidth:"1.2", strokeLinecap: "round", strokeLinejoin:"round", stroke: "#898989"}} />
                 <path d="M3.55908 15.2879C3.55908 15.2879 5.4166 12.9165 9.99992 12.9165C14.5832 12.9165 16.4408 15.2879 16.4408 15.2879" style={{stroke: "#898989", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round"}} />
                 <path d="M10 10C11.3807 10 12.5 8.88075 12.5 7.5C12.5 6.11929 11.3807 5 10 5C8.61925 5 7.5 6.11929 7.5 7.5C7.5 8.88075 8.61925 10 10 10Z" style={{stroke: "#898989", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round"}} />
-              </svg> Profile </a>
+              </svg> Profile </Link>
           </li>
           <li>
-            <a href="files.html" className="active">
+            <Link to="/files" className="active">
               <svg xmlns="http://www.w3.org/2000/svg" style={{width: "20", height: "20", viewBox:"0 0 20 20", fill:"none"}}>
                 <path d="M3.55991 17.2733L9.05703 11.7761C9.38704 11.4461 9.55205 11.2811 9.74232 11.2193C9.90969 11.1649 10.09 11.1649 10.2574 11.2193C10.4476 11.2811 10.6126 11.4461 10.9426 11.7761L16.4031 17.2366M11.6665 12.5L14.057 10.1095C14.387 9.77946 14.552 9.61445 14.7423 9.55263C14.9097 9.49825 15.09 9.49825 15.2574 9.55263C15.4476 9.61445 15.6126 9.77946 15.9426 10.1095L18.3332 12.5M8.33317 7.5C8.33317 8.42047 7.58698 9.16667 6.6665 9.16667C5.74603 9.16667 4.99984 8.42047 4.99984 7.5C4.99984 6.57953 5.74603 5.83333 6.6665 5.83333C7.58698 5.83333 8.33317 6.57953 8.33317 7.5ZM5.6665 17.5H14.3332C15.7333 17.5 16.4334 17.5 16.9681 17.2275C17.4386 16.9878 17.821 16.6054 18.0607 16.135C18.3332 15.6002 18.3332 14.9001 18.3332 13.5V6.5C18.3332 5.09987 18.3332 4.3998 18.0607 3.86502C17.821 3.39462 17.4386 3.01217 16.9681 2.77248C16.4334 2.5 15.7333 2.5 14.3332 2.5H5.6665C4.26637 2.5 3.56631 2.5 3.03153 2.77248C2.56112 3.01217 2.17867 3.39462 1.93899 3.86502C1.6665 4.3998 1.6665 5.09987 1.6665 6.5V13.5C1.6665 14.9001 1.6665 15.6002 1.93899 16.135C2.17867 16.6054 2.56112 16.9878 3.03153 17.2275C3.56631 17.5 4.26637 17.5 5.6665 17.5Z" style={{stroke: "#898989", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round"}} />
-              </svg> Files </a>
+              </svg> Files </Link>
           </li>
           <li>
             <a href="collections.html">
@@ -54,10 +54,10 @@ const File = () => {
               </svg> Collections </a>
           </li>
           <li>
-            <a href="receipts.html">
+            <Link to="/recipts">
               <svg xmlns="http://www.w3.org/2000/svg" style={{width: "20", height: "20", viewBox:"0 0 20 20", fill:"none"}}>
                 <path d="M3.3335 6.5C3.3335 5.09987 3.3335 4.3998 3.60598 3.86502C3.84566 3.39462 4.22811 3.01217 4.69852 2.77248C5.2333 2.5 5.93336 2.5 7.3335 2.5H12.6668C14.067 2.5 14.767 2.5 15.3018 2.77248C15.7722 3.01217 16.1547 3.39462 16.3943 3.86502C16.6668 4.3998 16.6668 5.09987 16.6668 6.5V17.5L14.3752 15.8333L12.2918 17.5L10.0002 15.8333L7.7085 17.5L5.62516 15.8333L3.3335 17.5V6.5Z" style={{stroke: "#898989", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round"}} />
-              </svg> Receipts </a>
+              </svg> Receipts </Link>
           </li>
         </ul>
       </div>
@@ -97,7 +97,7 @@ const File = () => {
         }}
         {...settings}
       >
-          <div className="slider-item" key={1}>
+          <div className="slider-item" style={{paddingRight:"2px"}} key={1}>
             <div className="slider-item-outer">
               <div className="graphic-wrapper">
                 <a href="#">
